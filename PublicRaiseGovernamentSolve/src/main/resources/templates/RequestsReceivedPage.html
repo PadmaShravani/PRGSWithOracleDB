@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Request received page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+/* Style the header */
+header {
+	background-color: #ce5181;
+	padding: 20px;
+	text-align: center;
+	font-size: 15px;
+	color: cornsilk;
+}
+
+.tab-content {
+	padding: 50px;
+}
+
+.navbar {
+	display: flex;
+	background-color: #333;
+}
+/* Style the navigation bar links */
+.navbar a {
+	color: whitesmoke;
+	padding: 2px;
+	text-decoration: none;
+	text-align: center;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+	background-color: #ddd;
+	color: black;
+}
+/* Style the footer */
+footer {
+	background-color: #777;
+	padding: 10px;
+	text-align: center;
+	color: white;
+}
+</style>
+</head>
+<body>
+	<header class="header">
+		<h3>Welcome To PRGS</h3>
+		<h6>Public Raise Government Solve</h6>
+		<label th:text=${msg}></label>
+	</header>
+	<section class="navbar">
+		<a href="admin_page">HomePage</a>
+        <a href="existing_user">Sign Out</a>   
+    </section><br>
+<div align="center">
+<table border="1" >
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>User Id</th>
+				<th>City</th>
+				<th>Street</th>
+				<th>ZipCode</th>
+				<th>Description</th>
+				<th>Status</th>	
+			</tr>
+		</thead>
+	    <tbody>
+			<tr th:each="ticket : ${list_all_requests}">
+			<td th:text="${ticket.Id}">Id</td>
+			<td th:text="${ticket.userId}">UserId</td>
+				<td th:text="${ticket.city}">City</td>
+				<td th:text="${ticket.street}">Street</td>
+				<td th:text="${ticket.zipCode}">ZipCode</td>
+				<td th:text="${ticket.description}">Description</td>
+				<td th:text="${ticket.status}">Status</td>
+			</tr>
+		</tbody>
+	</table><br><br>
+	<form action="#" th:action="@{/admin_raise}" th:object="${service}"
+			method="post">
+   
+	<Label title = "Multiple ticket numbers should be comma sperated">Enter Ticket Number(s)</Label>
+	<input type="text" th:value="*{ticketNumbers}" th:field="*{ticketNumbers}" />
+	<button> Raise Request Ticket</button><br><br>
+	</form>	
+		
+</div>
+
+	<footer class="footer">
+		<h4>Thank You</h4>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Visitor Page</title>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+	padding: 20px;
+	text-align: center;
+	background: #ce5181;
+	color: white;
+}
+
+/* Style the top navigation bar */
+.navbar {
+	display: flex;
+	background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+	color: white;
+	padding: 14px 20px;
+	text-decoration: none;
+	text-align: center;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+/* Column container */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+	flex: 30%;
+	background-color: #f1f1f1;
+	padding: 20px;
+}
+
+/* Main column */
+.main {
+	flex: 70%;
+	background-color: white;
+	padding: 20px;
+}
+
+/* Footer */
+.footer {
+	padding: 10px;
+	text-align: center;
+	background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+	.row, .navbar {
+		flex-direction: column;
+	}
+}
+
+p {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-align: justify;
+}
+
+img {
+	width: 100;
+	height: 100;
+}
+</style>
+</head>
+
+<body>
+	<!-- Header -->
+	<header class="header">
+		<h1>Welcome To PRGS</h1>
+		<h4>Public Raise Government Solve</h4>
+	</header>
+
+	<!-- Navigation Bar -->
+	<section class="navbar">
+		<a href="existing_user">Login</a> <a href="new_user">Sign Up</a>
+	</section>
+
+	<!-- The flexible grid (content) -->
+	<article class="row">
+		<div class="side">
+			<h2>What we did so far</h2>
+			<p>
+				Number of complaints we received are <b><label
+					style="color: red;" th:text=${list}></label><br></b> and Number of
+				complaints we solved are <b><label style="color: red;"
+					th:text=${closedList}></label></b>
+			</p>
+			<img
+				src="https://static.toiimg.com/thumb/msid-65894251,imgsize-199622,width-400,resizemode-4/65894251.jpg"
+				alt="Filling Pathole" width=250 height=250>
+
+
+		</div>
+		<div class="main">
+			<h2>Description about us</h2>
+			<p>India is a quickly developing nation at similar pace issues
+				that are likewise rising. So as to determine these issues and to
+				improve India here is a stage that straightforwardly e-interfaces
+				Individuals and the organization to illuminate the basic issues.
+				This is my little improvement as a person to manufacture a superior
+				India.</p>
+			<br>
+			<h2>Type Of Complaints/Requests We Accept</h2>
+			<h5>Examples</h5>
+
+			<ul>
+				<li style="font-family: Verdana, Geneva, Tahoma, sans-serif">Complaint
+					should be regarding the social issue not the personal issue.</li>
+				<li style="font-family: Verdana, Geneva, Tahoma, sans-serif">
+					Path holes on road,no public toilet within 2 miles,street light
+					does not work,need water supply,problems with water supply,Garbage
+					collection in streets,Drainage problems etc...</li>
+			</ul>
+
+			<!-- <div class="fakeimg" style="height:200px;">Image</div> -->
+			<img
+				src="https://india.smartcitiescouncil.com/sites/default/files/india/images/Water%20leakage.jpg"
+				alt="Garbage On Roads" width="250" height="250"> <img
+				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWTfRUVnArFUhybVBumAjUTcBfIwt8JKaA1mcKM4k5E8R3w7iu&s"
+				alt="Water Leaks in India" width="250" height="250"> <img
+				src="https://2.bp.blogspot.com/-5hqNA4KDQg8/Wpvqy8_1keI/AAAAAAAAAao/wO2pxbVo7YUuk8YiraARGiykfAd2LR2GQCLcBGAs/s1600/IMG_20180227_172601.jpg"
+				alt="Pathole" width="250" height="250">
+			<h2>Not acceptable complaints are:</h2>
+
+			<ul>
+				<li style="font-family: Verdana, Geneva, Tahoma, sans-serif">Theft
+					happened some place,need some immediate assistance to help
+					with,security for women,crime complaints,road rage fights.</li>
+			</ul>
+
+		</div>
+	</article>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<h2>Thank You</h2>
+	</footer>
+
+</body>
+
+</html>

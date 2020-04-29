@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Sign Up</title>
+
+<link href="../css/signup.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+	<form action="#" th:action="@{/save}" th:object="${users}"
+		method="post">
+
+		<div class="container">
+			<h4 style="text-align: center;">Creating your own PRGS Account</h4>
+			<input type="text" th:field="*{firstName}" name="firstName"
+				placeholder="FirstName *" required> <input type="text"
+				name="lastName" placeholder="LastName *" th:field="*{lastName}">
+			<br>
+			<br> <input class="length" type="text" name="User name"
+				placeholder="User Name *" th:field="*{userName}"> <br>
+			<br> <span class="red" th:if="${#fields.hasErrors('userName')}"
+				th:errors="*{userName}"></span> <input class="length" type="email"
+				name="email" placeholder="email *" th:field="*{email}"> <br>
+			<br> <input id="password" type="password" name="password"
+				placeholder="Password *" onkeyup='check();' th:field="*{password}">
+			<input type="password" name="Confirm_password"
+				placeholder="Confirm Password *" id="confirm_password"
+				onkeyup='check();'> <br> <span id='message'></span>
+			<!--     <small>use 8 or more characters with letters,numbers and symbols</small>-->
+			<br>
+			<br> <label>Date Of Birth &nbsp;</label> <input
+				class="alignment" type="date" name="DateOfBirth"
+				th:field="*{dateOfBirth}"> <br>
+			<br> <input type="radio" name="gender" value="Female"
+				th:field="*{gender}"> <label>Female</label> <input
+				type="radio" name="gender" value="Male"> <label>Male</label>
+			<input type="radio" name="gender" value="Others"> <label>Others</label><br>
+			<br>
+			<button title="Click to register">Register</button>
+			<label style="color: red;" th:text=${success}></label>
+		</div>
+	</form>
+	<script> var check = function() {
+        if (document.getElementById('password').value ==
+          document.getElementById('confirm_password').value) {
+          document.getElementById('message').style.color = 'green';
+          document.getElementById('message').innerHTML = 'matching';
+        } else {
+          document.getElementById('message').style.color = 'red';
+          document.getElementById('message').innerHTML = 'not matching';
+        }
+      }
+    </script>
+
+</body>
+</html>

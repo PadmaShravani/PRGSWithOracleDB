@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+padding-top: 10vh;
+background-image: url("../image/signup.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.container{
+width:410px;
+height: 380px;
+padding: 20px 30px;
+background-color: rgb(231, 224, 228);
+border-radius: 10px;
+box-shadow: 0 0 10px 0 #000;
+margin: auto;
+}
+.length{
+width: 345px;
+}
+.button{
+float: right;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
+    <link href="../css/login.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h4 style="text-align: center;">Welcome to PRGS login</h4><br><br>
+
+        <form action="#" th:action="@{/login}" th:object="${users}"
+			method="post">
+    	<div class="container">        
+        <img src="../image/logo.jpg" class="avatar"><br>
+        <input class="length" type="text" name="email" placeholder="email" th:field="*{email}"> <br><br>
+        <input class="length" type="password" name="password" placeholder="password "th:field="*{password}"> <br><br>        
+        <label style="color:red;" th:text=${errorMessage}></label><br>
+        <label style="color:red;" th:text=${erroremail}></label><br>      
+         <button title="click me">Login</button><br><br>
+        <small>Need an account?</small>
+       <a href="new_user">Sign Up</a>
+        </div>
+        </form>
+         
+</body>
+</html>
